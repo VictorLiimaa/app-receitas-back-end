@@ -8,6 +8,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false },
 });
 
+
 const createTables = async () => {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS recipes (
@@ -18,12 +19,17 @@ const createTables = async () => {
     );
   `);
 
+
   await pool.query(`
     CREATE TABLE IF NOT EXISTS favorites (
       id SERIAL PRIMARY KEY,
-      recipe_id INT REFERENCES recipes(id) ON DELETE CASCADE
+      recipe_id INT REFERENCES recipes(id) ON DELETE CASCADE,
+      name TEXT NOT NULL,
+      instructions TEXT NOT NULL,
+      image_url TEXT NOT NULL
     );
   `);
+
 };
 
 createTables().catch(console.error);

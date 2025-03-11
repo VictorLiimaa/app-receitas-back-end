@@ -3,8 +3,8 @@ import { getFavorites, addFavorite, removeFavorite } from './favorites.controlle
 
 const router = express.Router();
 
-router.get('/favorites', getFavorites); // Listar favoritos
-router.post('/favorites', addFavorite); // Adicionar aos favoritos
-router.delete('/favorites/:id', removeFavorite); // Remover dos favoritos
+router.get('/favorites', getFavorites); 
+router.post('/favorites', addFavorite); 
+router.delete('/favorites/:id', removeFavorite); 
 
 export default router;
